@@ -5,5 +5,8 @@ RUN apt update -y && apt install -y wkhtmltopdf
 COPY requirements.txt /app/contracts/
 RUN pip install -r requirements.txt
 COPY . /app/contracts/
-CMD sh app-entrypoint.sh
+COPY ./app-entrypoint.sh /app-entrypoint.sh
+RUN sed -i 's/\r//' /app-entrypoint.sh
+RUN chmod +x /app-entrypoint.sh
+CMD /app-entrypoint.sh
 
