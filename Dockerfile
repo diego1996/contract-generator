@@ -1,10 +1,9 @@
 FROM python:3.10
 ENV PYTHONUNBUFFERED 1
-WORKDIR /app/contracts
 RUN apt update -y && apt install -y wkhtmltopdf
-COPY requirements.txt /app/contracts/
+COPY requirements.txt /app
 RUN pip install -r requirements.txt
-COPY . /app/contracts/
+COPY . /app
 COPY ./app-entrypoint.sh /app-entrypoint.sh
 RUN sed -i 's/\r//' /app-entrypoint.sh
 RUN chmod +x /app-entrypoint.sh
