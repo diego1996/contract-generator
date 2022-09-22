@@ -7,4 +7,4 @@ COPY . /app
 COPY ./app-entrypoint.sh /app-entrypoint.sh
 RUN sed -i 's/\r//' /app-entrypoint.sh
 RUN chmod +x /app-entrypoint.sh
-
+WORKDIR /app
