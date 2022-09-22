@@ -105,7 +105,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             'page-size': 'Letter',
             'encoding': 'UTF-8',
             'header-spacing': '15',
-            'footer-spacing': '-15',
+            'footer-spacing': '1',
             'margin-top': '1.0in',
             'margin-bottom': '1.0in',
             'margin-right': '0in',
