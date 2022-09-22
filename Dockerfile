@@ -2,10 +2,9 @@ FROM python:3.10
 ENV PYTHONUNBUFFERED 1
 ENV XDG_RUNTIME_DIR=/tmp
 RUN apt update -y # && apt install -y wkhtmltopdf
-RUN apt install xfonts-75dpi -y && apt install xfonts-base -y
+RUN apt install xfonts-75dpi xfonts-base -y
 RUN wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6-1/wkhtmltox_0.12.6-1.buster_amd64.deb
 RUN apt-get -f install && dpkg -i wkhtmltox_0.12.6-1.buster_amd64.deb
-#
 COPY requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
 COPY . /app
