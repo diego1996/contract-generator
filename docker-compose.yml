@@ -11,6 +11,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: /app-entrypoint.sh
     volumes:
       - ./:/app
     env_file:
