@@ -101,6 +101,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         if self.pdfkit_options is not None:
             return self.pdfkit_options
         return {
+            'dpi': '300',
             'page-size': 'Letter',
             'encoding': 'UTF-8',
             'header-spacing': '15',
