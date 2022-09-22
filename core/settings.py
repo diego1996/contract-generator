@@ -137,3 +137,9 @@ LOGIN_URL = '/admin/'
 CSRF_TRUSTED_ORIGINS = [
     'https://contratos.observatoriodesaludvillavicencio.org'
 ]
+
+# Security
+SESSION_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = True
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
