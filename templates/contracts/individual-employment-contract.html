@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CONTRATO INDIVIDUAL / {{ employer_name }} - {{ employee_name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+            text-align: justify;
+            text-rendering: geometricPrecision;
+            font-family: 'Calibri Light', serif;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: auto;
+        }
+
+        .tab {
+            padding-left: 30px;
+        }
+
+        .title {
+            font-size: 1em;
+            font-family: 'Calibri Light', sans-serif;
+            line-height: 1.0;
+        }
+
+        .text {
+            font-size: 0.9em;
+            font-family: 'Calibri Light', sans-serif;
+            line-height: 1.2;
+            display: inline-table;
+            width: 100%;
+        }
+
+        .text_row {
+            font-size: 0.9em;
+            font-family: 'Calibri Light', sans-serif;
+            line-height: 1.2;
+        }
+
+        .table_border {
+            border-style: solid;
+            border-top-width: 1px;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+            border-left-width: 1px;
+        }
+
+        td {
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="block">
+    <p class="title" align="center"><b>CONTRATO INDIVIDUAL DE TRABAJO <br>POR OBRA O LABOR CONTRATADA</b></p>
+</div>
+<table width="100%" class="table_border">
+    <tr>
+        <td width="50%">
+            <p class="text_row" align="">
+                <b>NOMBRE DEL EMPLEADOR:</b>
+                <br>
+                <b>NIT No.:</b>
+                <br>
+                <b>DIRECCIÓN DEL EMPLEADOR:</b>
+                <br>
+                <b>NOMBRE DEL TRABAJADOR:</b>
+                <br>
+                <b>CÉDULA DE CIUDADANÍA:</b>
+                <br>
+                <b>DIRECCIÓN DEL TRABAJADOR:</b>
+                <br>
+                <b>TELÉFONO:</b>
+                <br>
+                <b>MAIL:</b>
+                <br>
+                <b>LUGAR, FECHA DE NACIMIENTO Y NACIONALIDAD:</b>
+                <br>
+                <b>CARGO U OFICIO DESEMPEÑARA EL TRABAJADOR:</b>
+                <br>
+                <b>SALARIO BÁSICO:</b>
+                <br>
+                <b>PERÍODOS DE PAGO:</b>
+                <br>
+                <b>FECHA DE INICIACIÓN DE LABORES:</b>
+                <br>
+                <b>CLASE DE CONTRATO:</b>
+                <br>
+                <b>LUGAR DONDE DESEMPEÑARA LAS LABORES:</b>
+                <br>
+                <b>CIUDAD DONDE HA SIDO CONTRATADO TRABAJADOR:</b>
+                <br>
+                <b>OBRA O LABOR CONTRATADA:</b>
+                <br>
+                <br>
+            </p>
+        </td>
+        <td>
+            <p class="text_row" align="">
+                <b>{{ employer_name }}</b>
+                <br>
+                {{ employer_nit }}
+                <br>
+                {{ employer_address }}
+                <br>
+                <b>{{ employee_name }}</b>
+                <br>
+                {{ employee_identification_type }} {{ employee_identification_number }} DE {{ employee_identification_expedition_place }}
+                <br>
+                {{ employee_address }}
+                <br>
+                {{ employee_cellphone }}
+                <br>
+                {{ employee_email }}
+                <br>
+                {{ employee_place_birth }}, {{ employee_date_birth }}, {{ employee_nationality }}
+                <br>
+                {{ contract_position }}
+                <br>
+                {{ contract_base_salary }}
+                <br>
+                {{ contract_paid_period }}
+                <br>
+                {{ contract_start_work_date }}
+                <br>
+                {{ contract_type }}
+                <br>
+                {{ contract_place_work }}
+                <br>
+                {{ contract_city }}
+                <br>
+                {{ contract_position_description }}
+            </p>
+        </td>
+    </tr>
+</table>
+<br>
+<div class="block">
+    <p class="text">
+        Entre EL EMPLEADOR y EL TRABAJADOR, de las condiciones ya dichas, identificados como aparece al pie de sus
+        firmas, se ha celebrado el presente contrato individual de trabajo, regido además por las siguientes cláusulas:
+    </p>
+</div>
+<div class="block">
+    <p class="text" align="">
+        <b>PRIMERA: OBJETO.</b> EL EMPLEADOR contrata los servicios personales del TRABAJADOR para que desarrolle
+        labores de {{ contract_position }}, y éste se obliga: a) a poner al servicio del EMPLEADOR toda su capacidad
+        normal de
+        trabajo, en forma exclusiva en el desempeño de las funciones propias del oficio mencionado y en las labores
+        anexas y complementarias del mismo, de conformidad con las órdenes e instrucciones que le imparta EL EMPLEADOR
+        directamente o a través de sus representantes. b) a no prestar directa ni indirectamente servicios laborales a
+        otros EMPLEADORES, ni a trabajar por cuenta propia en el mismo oficio, durante la vigencia de este contrato; y
+        c) a guardar absoluta reserva sobre los hechos, documentos físicos y/o electrónicos, informaciones y en general,
+        sobre todos los asuntos y materia que lleguen a su conocimiento por causa o con ocasión de su contrato de
+        trabajo. <b>PARÁGRAFO PRIMERO:</b> El contenido de la cláusula Décima Sexta que trata de las Obligaciones
+        especiales,
+        es general y no excluye ni limita para ejecutar labores conexas complementarias, asesorías o similares y en
+        general aquellas que sean necesarias para un mejor resultado en la ejecución de la causa que dio origen al
+        contrato.
+    </p>
+    <p class="text" align="">
+        <b>SEGUNDA: REMUNERACIÓN.</b> EL EMPLEADOR pagará al TRABAJADOR por la prestación de sus servicios el salario
+        indicado, pagadero en las oportunidades también señaladas arriba. Dentro de este pago se encuentra incluida la
+        remuneración de los descansos dominicales y festivos de que tratan los Capítulos I, II y III del Título VII del
+        C.S.T. <b>PARAGRAFO PRIMERO:</b> Las partes acuerdan que en los casos en que se le reconozcan al TRABAJADOR
+        beneficios
+        diferentes al salario, por concepto de alimentación, habitación o vivienda, transporte y vestuario, se
+        considerarán tales beneficios o reconocimientos como no salariales y por tanto no se tendrán en cuenta como
+        factor salarial para la liquidación de acreencias laborales, ni el pago de aportes parafiscales (diferentes a
+        los de seguridad social), de conformidad con los Art. 15 y 16 de la ley 50/90, en concordancia con el Art. 17 de
+        la 344/96. <b>PARÁGRAFO SEGUNDO:</b> Debido a que, en su labor, se tiene la necesidad de desplazarse
+        continuamente, se
+        incluyen auxilios mensuales para gasolina y alimentación por un valor mensual
+        de {{ contract_auxiliary_salary_text }} M/CTE ({{ contract_auxiliary_salary }}), monto que no será tenido en
+        cuenta como factor salarial.
+        <b>PARÁGRAFO TERCERO:</b> EL TRABAJADOR autoriza al Empleador para que la retribución, así como cualquier otro
+        beneficio, sea prestacional, descanso, vacaciones etc. originado en la existencia y/o terminación del contrato
+        sean consignadas o trasladadas a cuenta que desde ya el Trabajador suministra al Empleador.
+    </p>
+    <p class="text" align="">
+        <b>TERCERA: VALIDEZ.</b> El presente contrato tendrá validez únicamente a partir del momento en que el cliente
+        principal, en este caso, {{ contract_partner }}, apruebe y valide el cumplimiento del perfil y hoja de vida del
+        TRABAJADOR.
+    </p>
+    <p class="text" align="">
+        <b>CUARTA: FECHA DE INICIO.</b> El inicio del presente contrato será a partir del momento en que el cliente
+        principal, en este caso, {{ contract_partner }}, apruebe y valide el cumplimiento del perfil y hoja de vida del
+        TRABAJADOR.
+    </p>
+    <p class="text" align="">
+        <b>QUINTA: JORNADA DE TRABAJO.</b> EL TRABAJADOR se obliga a laboral la jornada máxima legal y podrá estar
+        sujeta a cambios de horarios a turnos nocturnos y su remuneración se realizará conforme a las disposiciones
+        laborales vigentes en Colombia, Art. 164 del Código Sustantivo de Trabajo, modificado por el Art. 23 de la ley
+        50/90, teniendo en cuenta los tiempos de descanso entre las secciones de la jornada no se computan dentro de la
+        misma, según el Art. 167 del Código Sustantivo de Trabajo. Así mismo las partes podrán acordar que se preste el
+        servicio nocturno de jornada flexible contemplado en el Art. 51 de la Ley 789/2002. <b>PARÁGRAFO PRIMERO:</b>
+        Para el
+        reconocimiento y pago del trabajo suplementario, nocturno, dominical o festivo, EL EMPLEADOR o sus
+        representantes deberán haberlo autorizado previamente y por escrito. Cuando la necesidad de este trabajo se
+        presente de manera imprevista o inaplazable, deberá ejecutarse y darse cuenta de él por escrito, a la mayor
+        brevedad, al EMPLEADOR o a sus representantes para su aprobación. EL EMPLEADOR, en consecuencia, no reconocerá
+        ningún trabajo suplementario, o trabajo nocturno o en días de descanso legalmente obligatorio que no haya sido
+        autorizado previamente o que, habiendo sido avisado inmediatamente, no haya sido aprobado como queda dicho. El
+        EMPLEADOR fijará las jornadas laborales de acuerdo a las necesidades del servicio pudiendo variarlas durante la
+        ejecución del presente contrato.
+    </p>
+    <p class="text" align="">
+        <b>SEXTA: DURACIÓN DEL CONTRATO.</b> El presente contrato se celebra por {{ contract_duration }} o hasta que
+        culmine el
+        contrato principal entre la empresa y {{ contract_partner }}, o hasta que el cliente principal lo demande, lo
+        primero que ocurra.
+    </p>
+    <p class="text" align="">
+        <b>SÉPTIMA: PERIODO DE PRUEBA.</b> Los primeros {{ contract_test_period_duration }} del presente contrato se
+        consideran como
+        periodo de prueba y por consiguiente, cualquiera de las partes podrá dar por terminado unilateralmente, en
+        cualquier momento durante dicho periodo, sin que se cause el pago de indemnización alguna.
+    </p>
+    <p class="text" align="">
+        <b>OCTAVA: TERMINACIÓN UNILATERAL.</b> Son justas causas para dar por terminado unilateralmente el presente
+        contrato, las establecidas en el Código Sustantivo de Trabajo, en el Reglamento Interno de Trabajo y en especial
+        las siguientes que se califican como faltas graves: A) La violación por parte del TRABAJADOR de cualquiera de
+        sus obligaciones legales o reglamentarias. B) La falta al trabajo sin causa justificada a juicio del EMPLEADOR,
+        por dos veces dentro de un mismo mes calendario. C) La ejecución por parte del TRABAJADOR de labores remuneradas
+        al servicio de terceros sin la autorización del EMPLEADOR. D) La revelación de información de cualquier
+        naturaleza que pueda considerarse como reservada, tanto del EMPLEADOR o de cualquiera de sus clientes y en
+        particular las relativas a la naturaleza de las operaciones del EMPLEADOR. E) La embriaguez habitual o la
+        dependencia de alucinógenos o sustancias tóxicas en horario, jornada laboral y/o sitio de trabajo. F) Los daños
+        materiales causados a los vehículos, herramientas, equipos, elementos de trabajo, por culpa o descuido del
+        TRABAJADOR. G) Cualquier acto de indisciplina para con sus compañeros de trabajo. H) Todo acto de injuria o
+        violencia aún leves que el TRABAJADOR cometa contra sus compañeros de trabajo, los directivos o superiores
+        jerárquicos al servicio del EMPLEADOR o del contratante. I) El incumplimiento de las normas sobre seguridad
+        industrial y salud en el trabajo establecidas por el EMPLEADOR o por el contratante, así como el no uso por
+        parte del TRABAJADOR de la dotación y de los elementos de seguridad industrial. J) El retardo a la hora de
+        entrada o el retiro antes de la terminación de la jornada laboral por tres veces en un periodo no mayor de seis
+        meses. K) La inasistencia al trabajo en un turno completo o de un día, sin justificación alguna, aún por primera
+        vez. L) De común acuerdo EMPLEADOR y TRABAJADOR convienen en calificar como justa causa de terminación del
+        presente contrato, la terminación por cualquier causa o motivo del contrato de obra suscrito entre el EMPLEADOR
+        y la empresa contratante de la obra, en razón de producirse en forma automática la desaparición de la causa o la
+        materia que le da origen a este contrato, circunstancia que el TRABAJADOR manifiesta conocer desde la firma del
+        presente documento y acepta como justa causa que se califica.
+    </p>
+    <p class="text" align="">
+        <b>NOVENA: INVENCIONES.</b> Las invenciones realizadas por EL TRABAJADOR le pertenecen, salvo: a) En el evento
+        que la invención haya sido realizada por el TRABAJADOR contratado para investigar, siempre y cuando la invención
+        sea el resultado de la misión específica para la cual ha sido contratado. B) Cuando el trabajador no ha sido
+        contratado para investigar y la invención se obtiene mediante datos o medios conocidos o utilizados en razón de
+        la labor desempeñada. En este último evento, el trabajador, tendrá derecho a una compensación que se fijará por
+        un tribunal de arbitramiento designado por las partes en cumplimiento de las normas laborales y de arbitraje
+        vigentes para el momento en que se origine el conflicto, de acuerdo al monto del salario, la importancia del
+        invento o descubrimiento, el beneficio que reporte al EMPLEADOR u otros factores similares.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA: DERECHOS DE AUTOR.</b> Los derechos patrimoniales sobre las obras, diseños invenciones,
+        investigaciones etc. creadas por EL TRABAJADOR en ejercicio de sus funciones o con ocasión ellas pertenecen AL
+        EMPLEADOR.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA PRIMERA: AUTORIZACIONES.</b> Se deja expresa constancia de que EL TRABAJADOR autoriza de forma
+        previa, expresa e inequívoca que los datos personales que suministro al EMPLEADOR serán tratados conforme a lo
+        previsto en el presente contrato a favor del EMPLEADOR para almacenar en una base de datos del EMPLEADOR que
+        podrá ser consultada por cualquier Entidad o persona que solicite la información con el fin de contactar al
+        TRABAJADOR para entablar cualquier relación civil o comercial. Así como para ser entregados a las Aseguradoras y
+        Administradoras de Seguridad Social, Empresas de Seguridad y Salud en el Trabajo, Cajas de Compensación
+        Familiar, Entes del Estado y/o cualquier Organización que justifique su obtención con fines lícitos.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA SEGUNDA: MODIFICACIONES DE LAS CONDICIONES LABORALES.</b> El TRABAJADOR acepta desde ahora
+        expresamente todas modificaciones determinadas por el EMPLEADOR, en ejercicio de su poder subordinante, de sus
+        condiciones laborales, tales como turnos y jornadas de trabajo, el lugar de prestación de servicio, el cargo u
+        oficio y/o funciones y la forma de remuneración, siempre que tales modificaciones no afecten su honor, dignidad
+        o derechos mínimos, ni impliquen desmejoras sustanciales o graves perjuicios para él, de conformidad con lo
+        dispuesto por el Art. 23 del C.S.T modificado por el Art. 1º de la Ley 50/90. Los gastos que se originen con el
+        traslado de lugar de prestación del servicio serán cubiertos por el EMPLEADOR de conformidad con el numeral 8º
+        del Art. 57 del C.S.T.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA TERCERA: TRASLADOS.</b> Desde ya EL TRABAJADOR acuerda que EL EMPLEADOR no podrá trasladarlo desde el
+        lugar, cargo y/o sitio de trabajo de acuerdo a las necesidades del servicio, sin previo aviso y concertación
+        entre las partes.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA CUARTA: DIRECCIÓN DEL TRABAJADOR.</b> El TRABAJADOR para todos los efectos legales y en especial para
+        la aplicación del parágrafo 1 del artículo 29 de la ley 789/02, norma que modifico el 65 del C.S.T, se
+        compromete por escrito y de manera inmediata le informará al EMPLEADOR cualquier cambio en su dirección de
+        residencia, teniéndose en todo caso como suya, la última dirección registrada en su hoja de vida.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA QUINTA: LEGALIDAD.</b> Este contrato ha sido redactado estrictamente de acuerdo con la ley y la
+        jurisprudencia y será interpretado de buena fe y en consonancia con el Código Sustantivo del Trabajo cuyo
+        objeto, definido en su artículo 1, es lograr la justicia en las relaciones entre empleadores y empleados dentro
+        del espíritu de coordinación económica y equilibrio social.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA SEXTA: EFECTOS.</b> El presente contrato reemplaza en su integridad y deja sin efecto cualquier
+        contrato, verbal o escrito, celebrado entre las partes con anterioridad, pudiendo las partes convertir por
+        escrito modificaciones al mismo, las que formarán parte integral de este contrato.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA SÉPTIMA: OBLIGACIONES GENERALES DEL TRABAJADOR.</b> a. Las establecidas en la Ley Laboral, reglamento
+        interno de trabajo y el cumplimiento de las instrucciones emitidas por el Empleador en transcurso del desarrollo
+        del Contrato Laboral. b. Suscribir el acuerdo de Confidencialidad determinado por El Empleador. c. No ejercer
+        actos de Competencia desleal frente al Empleador. d. Respetar los sitios de trabajo asignados por El Empleador,
+        cumpliendo con las directrices de dichas Empresas. e. Tener una excelente presentación personal. d. Cumplir con
+        los horarios estipulados por El Empleador para desarrollar las funciones con los CLIENTES. f. Demás obligaciones
+        inherentes al presente Contrato Laboral.
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA OCTAVA: OBLIGACIONES ESPECIALES.</b> El cargo de {{ contract_position }}, es responsable en su
+        totalidad de las siguientes labores de apoyo técnico y administrativo:
+        {% for activity in contract_activities %}
+            <b> {{ forloop.counter }}. {{ activity.title }}.</b> {{ activity.description }}
+        {% endfor %}
+    </p>
+    <p class="text" align="">
+        <b>DÉCIMA NOVENA: BENEFICIOS EXTRALEGALES.</b> El EMPLEADOR podrá reconocer beneficios, primas, prestaciones de
+        naturaleza extra legal, lo que se hace a título de mera liberalidad y estos subsistirán hasta que el EMPLEADOR
+        decida su modificación o supresión, atendiendo su capacidad, todos los cuales se otorgan y reconocen, y el
+        trabajador así lo acuerdan sin que tengan carácter salarial y por lo tanto no tienen efecto prestacional o
+        incidencia en la base de aportes en la seguridad social o parafiscal en especial este acuerdo se refiere a
+        auxilios en dinero o en especie, primas periódicas o de antigüedad o en general beneficios de esa naturaleza los
+        que podrán ser modificados o suprimidos por el EMPLEADOR de acuerdo con su determinación unilateral tal como fue
+        otorgado.
+    </p>
+    <p class="text" align="">
+        <b>VIGÉSIMA: DESCUENTOS.</b> EL TRABAJADOR autoriza para que EL EMPLEADOR descuente cualquier suma de dinero que
+        se cause dentro de la existencia y terminación del contrato de trabajo ya sea por concepto de préstamos,
+        alimentación a bajo costo, bonos de alimentación, vivienda, utilización de medios de comunicación, aportes
+        bienes dados a cargo y no reintegrados, u otros que se presenten en ejercicio de la labor que desarrolla,
+        previamente aprobados por las partes. Este descuento se podrá realizar de la nómina quincenal o mensual o de las
+        prestaciones sociales, indemnizaciones, descansos o cualquier beneficio que resulte con ocasión de la existencia
+        o terminación del contrato por cualquier motivo.
+    </p>
+    <p class="text" align="">
+        <b>VIGÉSIMA PRIMERA.</b> EL TRABAJADOR responde por los vehículos, herramientas, equipos y elementos de trabajo
+        de propiedad del EMPLEADOR, los cuales le son entregados en perfecto estado de funcionamiento y en tal virtud
+        deberá responder por ellos, en caso de hurto, robo o daños sin causa justificada. <b>PARÁGRAFO:</b> El
+        TRABAJADOR
+        autoriza desde ahora en forma expresa al EMPLEADOR para que de sus salarios, prestaciones sociales, vacaciones,
+        primas, comisiones, e indemnizaciones, auxilios y demás asignaciones extralegales que llegase a recibir, se
+        descuenten las sumas de dinero que por cualquier concepto pudiera adeudar, de acuerdo a lo que arroje el proceso
+        probatorio, ya sea por los daños o pérdidas de las cuales pueda resultar responsable por negligencia,
+        imprevisión, desobediencia o falta a los reglamentos de trabajo. Así como pactan conjuntamente que podrá
+        descontar los dineros que el TRABAJADOR se haya apropiado indebidamente, igualmente desde ahora autoriza
+        expresamente al EMPLEADOR para deducir de los mismos conceptos cualquier suma que a la terminación del contrato
+        resulte a deber el TRABAJADOR. Por concepto de préstamos personales, daños y/o cualquier otro dinero a cargo del
+        TRABAJADOR.
+    </p>
+    <p class="text" align="">
+        <b>VIGÉSIMA SEGUNDA. MODIFICACIONES: </b> Las modificaciones al presente contrato podrán elaborarse en una hoja
+        anexa a este documento, la cual hará parte del mismo y donde deberán consignarse los nombres y firmas de las
+        partes contratantes, su documento de identidad y fecha en que se efectúe la modificación, sin que se desmejoren
+        las condiciones de trabajo del trabajador.
+    </p>
+    <p class="text" align="">Para constancia se firma en dos ejemplares del mismo tenor y valor, ante testigos, un
+        ejemplar de los cuales recibe EL TRABAJADOR en este acto, en la ciudad y fecha que se indican a continuación:
+    </p>
+</div>
+<br>
+<table width="100%">
+    <tr>
+        <td>
+            <p class="text"><b>CIUDAD: </b> {{ contract_city }}</p>
+            <p class="text">EL EMPLEADOR,</p>
+            <br>
+            <br>
+            <p>___________________________________</p>
+            <p class="text">
+                <b>{{ employer_legal_representative }}</b>
+                <br>
+                <b>{{ employer_name }}</b>
+                <br>
+                NIT. {{ employer_nit }}
+            </p>
+
+            <p class="text">TESTIGOS,</p>
+            <br>
+            <br>
+            <p>___________________________________</p>
+            <p class="text">
+                NOMBRE
+                <br>
+                C.C.
+            </p>
+        </td>
+        <td>
+            <p class="text"><b>FECHA: </b> {{ contract_date }}</p>
+            <p class="text">EL TRABAJADOR,</p>
+            <br>
+            <br>
+            <p>___________________________________</p>
+            <p class="text">
+                <b>{{ employee_name }}</b>
+                <br>
+                {{ employee_identification_type }}. {{ employee_identification_number }}
+                DE {{ employee_identification_expedition_place }}
+                <br>
+                <br>
+            </p>
+
+
+            <p class="text">&nbsp;</p>
+            <br>
+            <br>
+            <p>___________________________________</p>
+            <p class="text">
+                NOMBRE
+                <br>
+                C.C.
+            </p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

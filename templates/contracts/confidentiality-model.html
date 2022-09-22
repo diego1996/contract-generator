@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CONVENIO DE CONFIDENCIALIDAD / {{ employer_name }} - {{ employee_name }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <style>
+
+        body {
+            margin-left: 10%;
+            margin-right: 10%;
+            text-align: justify;
+            text-rendering: geometricPrecision;
+            font-family: 'Calibri Light', serif;
+            -webkit-font-smoothing: antialiased;
+            -webkit-text-size-adjust: auto;
+            {#background: url('http://127.0.0.1:8000/media/employer/letterhead/footer.png') no-repeat center center fixed;#}
+        }
+
+        .tab {
+            padding-left: 30px;
+        }
+
+        .title {
+            font-size: 1em;
+            font-family: 'Calibri Light', sans-serif;
+            line-height: 1.0;
+        }
+
+        .text {
+            font-size: 0.9em;
+            font-family: 'Calibri Light', sans-serif;
+            line-height: 1.2;
+            display: inline-table;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="block">
+    <p class="title" align="center"><b>CONVENIO DE CONFIDENCIALIDAD</b></p>
+    <p class="text">
+        CONVENIO DE CONFIDENCIALIDAD QUE CELEBRAN POR UNA PARTE {{ employer_name }} Y A QUIEN EN
+        LO SUCESIVO SE LE DENOMINARÁ “EL EMPLEADOR” Y POR LA OTRA EL/LA SR(A). {{ employee_name }}, QUIEN EN LO SUCESIVO
+        SE LE DENOMINARÁ “EL EMPLEADO”, AL TENOR DE LAS SIGUIENTES DECLARACIONES Y CLÁUSULAS:
+    </p>
+</div>
+<div class="block">
+    <p class="title" align="center"><b>DECLARACIONES</b></p>
+    <p class="text"><b>I.</b>- Declara “EL EMPLEADOR” que:</p>
+    <div class="tab" style="margin-top: -40px">
+        <p class="text">
+            <br>
+            <b>A</b>. &nbsp Es una sociedad mercantil constituida conforme a las leyes colombianas,
+            quien tiene su domicilio en la {{ employer_address }}, en la ciudad de {{ employer_city }},
+            y estar representadas en este acto por el Representante Legal.
+            <br>
+            <b>B.</b> &nbsp Asimismo declara que dentro de su patrimonio se encuentran diversos bienes
+            tangibles e intangibles que se utilizan para cumplir con su actividad y objeto social,
+            entre los cuales se encuentran los siguientes: conocimientos técnicos;
+            modos de trabajo adquiridos con el tiempo; diseños estructurales,
+            arquitectónicos y demás relacionadas directamente con el objeto social de la empresa; estrategias de
+            mercado; estrategias de competencia; procesos de construcción;
+            distintivos (dibujos, pinturas, diseños, logotipos, lemas, etc.);
+            administración de recursos materiales y humanos; operación y manejo de materias primas;
+            aprovechamiento de tiempos y movimientos; principios e ideales en la actividad laboral; listas de precios;
+            datos de socios y/o colegas ya sea como persona natural y/o jurídica; proveedores de bienes y servicios;
+            cartera de clientes; sistemas de comercialización; estadísticas gráficas y estudios de mercado;
+            manuales de operación de maquinaria; estatutos y reglamentos de actividad laboral y en general toda clase
+            de datos e información electrónica, escrita o verbal que será considerada como propiedad intelectual
+            de “El EMPLEADOR” y por tanto, es INFORMACIÓN CONFIDENCIAL que debe ser preservada y guardada en secreto.
+        </p>
+    </div>
+    <div style="margin-top: -20px">
+        <p class="text"><b>II</b>.- Declara “EL EMPLEADO” que existe una relación de carácter laboral con “El
+            EMPLEADOR”, según contrato de trabajo fechado el {{ contract_date }}, así como tener conocimientos
+            para desempeñar el puesto de {{ contract_position }}, y que con motivo de su trabajo tiene acceso a
+            información privilegiada la cual acepta
+            guardar
+            con escrupulosa confidencialidad.</p>
+    </div>
+    <p class="text" align="">En virtud de lo anterior, ambas partes se someten a las disposiciones de las
+        siguientes:
+    </p>
+</div>
+<div class="block">
+    <p class="title" align="center"><b>CLÁUSULAS</b></p>
+    <p class="text" align="">
+        <b>PRIMERA.</b> Ambas partes aceptan que toda información señalada en la declaración “I-B”, de “EL EMPLEADOR”,
+        es de su propiedad y la misma será considerada como INFORMACIÓN CONFIDENCIAL, por lo tanto “EL EMPLEADO” se
+        obliga a guardarla en secreto, por lo que no podrá hacerla del conocimiento de persona alguna.
+        <br>
+        <b>SEGUNDA.</b> “EL EMPLEADO” se obliga a no divulgar la información que en forma personal maneje, ni la
+        proporcionará a terceras personas en forma verbal; escrita; por medios electrónicos, magnéticos, o por cualquier
+        otro; directa o indirectamente; por el contrario, se obliga a conservarla y no divulgarla.
+        <br>
+        <b>TERCERA.</b> Las obligaciones establecidas para “EL CONSTRATISTA”, inherentes a este convenio, subsistirán
+        por tiempo indefinido a partir de su firma, independientemente de que la relación de trabajo termine por
+        cualquier causa.
+        <br>
+        <b>CUARTA.</b> El incumplimiento o violación de cualquiera de las obligaciones aquí contraídas por “EL EMPLEADO”
+        implicarán la rescisión de su contrato y la relación individual de servicios sin responsabilidad para “EL
+        EMPLEADOR”, en virtud de considerarse faltas graves de probidad y lealtad.
+        <br>
+        <b>QUINTA.</b> “EL EMPLEADO” acepta que independientemente de la responsabilidad civil originada por el
+        incumplimiento de las obligaciones consignadas en este convenio, podrá generarse responsabilidad de naturaleza
+        penal.
+        <br>
+        <b>SEXTA.</b> Este convenio forma parte del contrato individual de trabajo que tiene celebrado “EL EMPLEADO” con
+        “EL EMPLEADOR”.
+    </p>
+    <p class="text" align="">Las partes firman el presente convenio en original, en las fechas y lugar que se incluyen a
+        continuación:
+    </p>
+</div>
+<br>
+<table width="100%">
+    <tr>
+        <td>
+            <p class="text"><b>CIUDAD: </b> {{ contract_city }}</p>
+            <p class="text">EL EMPLEADOR,</p>
+            <br>
+            <br>
+            <p>___________________________________</p>
+            <p class="text">
+                <b>{{ employer_legal_representative }}</b>
+                <br>
+                <b>{{ employer_name }}</b>
+                <br>
+                NIT. {{ employer_nit }}
+            </p>
+        </td>
+        <td>
+            <p class="text"><b>FECHA: </b> {{ contract_date }}</p>
+            <p class="text">EL EMPLEADO,</p>
+            <br>
+            <br>
+            <p>___________________________________</p>
+            <p class="text">
+                <b>{{ employee_name }}</b>
+                <br>
+                {{ employee_identification_type }}. {{ employee_identification_number }}
+                DE {{ employee_identification_expedition_place }}
+                <br>
+                <br>
+            </p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
