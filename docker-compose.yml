@@ -1,0 +1,21 @@
+version: '3'
+
+networks:
+  default:
+    external:
+      name: osv-proxy_osv_network
+
+services:
+  contracts: &contracts
+    container_name: contracts
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: contracts
+    volumes:
+      - ./:/app
+    env_file:
+      - ./.envs/.api
+    ports:
+      - "8000"
+    restart: unless-stopped

@@ -5,6 +5,7 @@ django-cors-headers
 django-extensions
 django-money
 pdfkit~=0.6.0
+gunicorn
 mysqlclient
 pymysql
 pillow
