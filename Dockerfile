@@ -2,7 +2,7 @@ FROM python:3.10
 ENV PYTHONUNBUFFERED 1
 RUN apt update -y && apt install -y wkhtmltopdf
 COPY requirements.txt /app
-RUN pip install -r requirements.txt
+RUN pip install -r /app/requirements.txt
 COPY . /app
 COPY ./app-entrypoint.sh /app-entrypoint.sh
 RUN sed -i 's/\r//' /app-entrypoint.sh
