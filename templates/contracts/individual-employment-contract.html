@@ -18,10 +18,6 @@
             -webkit-text-size-adjust: auto;
         }
 
-        .tab {
-            padding-left: 30px;
-        }
-
         .title {
             font-size: 14px;
             font-family: 'Calibri Light', sans-serif;
@@ -39,21 +35,7 @@
         .text_row {
             font-size: 12px;
             font-family: 'Calibri Light', sans-serif;
-            line-height: 1.2;
-        }
-
-        .table_border {
-            border-style: solid;
-            border-top-width: 1px;
-            border-right-width: 1px;
-            border-bottom-width: 1px;
-            border-left-width: 1px;
-        }
-
-        td {
-            padding-top: 10px;
-            padding-left: 10px;
-            padding-right: 10px;
+            line-height: 0;
         }
 
     </style>
@@ -62,87 +44,149 @@
 <div class="block">
     <p class="title" align="center"><b>CONTRATO INDIVIDUAL DE TRABAJO <br>POR OBRA O LABOR CONTRATADA</b></p>
 </div>
-<table width="100%" class="table_border">
-    <tr>
-        <td width="50%">
+
+<div class="flex-container"
+     style="display:table; width: 100%; padding-bottom: 5px; padding-top: 20px; padding-left: 20px;border:1px solid black">
+    <div style="display: table-row;">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>NOMBRE DEL EMPLEADOR:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align=""><b>{{ employer_name }}</b></p>
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>NIT No.:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ employer_nit }}</p>
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>DIRECCIÓN DEL EMPLEADOR:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ employer_address }}</p>
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>NOMBRE DEL TRABAJADOR:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align=""><b>{{ employee_name }}</b></p>
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>CÉDULA DE CIUDADANÍA:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ employee_identification_type }} {{ employee_identification_number }}
+                DE {{ employee_identification_expedition_place }}</p>
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>DIRECCIÓN DEL TRABAJADOR:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ employee_address }}</p>
+        </div>
+    </div>
+    <div style="display: table-row">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>TELÉFONO:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ employee_cellphone }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>MAIL:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ employee_email }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>LUGAR, FECHA DE NACIMIENTO Y NACIONALIDAD:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
             <p class="text_row" align="">
-                <b>NOMBRE DEL EMPLEADOR:</b>
-                <br>
-                <b>NIT No.:</b>
-                <br>
-                <b>DIRECCIÓN DEL EMPLEADOR:</b>
-                <br>
-                <b>NOMBRE DEL TRABAJADOR:</b>
-                <br>
-                <b>CÉDULA DE CIUDADANÍA:</b>
-                <br>
-                <b>DIRECCIÓN DEL TRABAJADOR:</b>
-                <br>
-                <b>TELÉFONO:</b>
-                <br>
-                <b>MAIL:</b>
-                <br>
-                <b>LUGAR, FECHA DE NACIMIENTO Y NACIONALIDAD:</b>
-                <br>
-                <b>CARGO U OFICIO DESEMPEÑARA EL TRABAJADOR:</b>
-                <br>
-                <b>SALARIO BÁSICO:</b>
-                <br>
-                <b>PERÍODOS DE PAGO:</b>
-                <br>
-                <b>FECHA DE INICIACIÓN DE LABORES:</b>
-                <br>
-                <b>CLASE DE CONTRATO:</b>
-                <br>
-                <b>LUGAR DONDE DESEMPEÑARA LAS LABORES:</b>
-                <br>
-                <b>CIUDAD DONDE HA SIDO CONTRATADO EL TRABAJADOR:</b>
-                <br>
-                <b>OBRA O LABOR CONTRATADA:</b>
-                <br>
-                <br>
-            </p>
-        </td>
-        <td>
-            <p class="text_row" align="">
-                <b>{{ employer_name }}</b>
-                <br>
-                {{ employer_nit }}
-                <br>
-                {{ employer_address }}
-                <br>
-                <b>{{ employee_name }}</b>
-                <br>
-                {{ employee_identification_type }} {{ employee_identification_number }}
-                DE {{ employee_identification_expedition_place }}
-                <br>
-                {{ employee_address }}
-                <br>
-                {{ employee_cellphone }}
-                <br>
-                {{ employee_email }}
-                <br>
                 {{ employee_place_birth }}, {{ employee_date_birth }}, {{ employee_nationality }}
-                <br>
-                {{ contract_position }}
-                <br>
-                {{ contract_base_salary }}
-                <br>
-                {{ contract_paid_period }}
-                <br>
-                {{ contract_start_work_date }}
-                <br>
-                {{ contract_type }}
-                <br>
-                {{ contract_place_work }}
-                <br>
-                {{ contract_city }}
-                <br>
-                {{ contract_position_description }}
             </p>
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>CARGO U OFICIO DESEMPEÑARA EL TRABAJADOR:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_position }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>SALARIO BÁSICO:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_base_salary }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>PERÍODOS DE PAGO:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_paid_period }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>FECHA DE INICIACIÓN DE LABORES:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_start_work_date }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>CLASE DE CONTRATO:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_type }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>LUGAR DONDE DESEMPEÑARA LAS LABORES:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_place_work }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>CIUDAD DONDE HA SIDO CONTRATADO EL TRABAJADOR:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_city }}</p>
+        </div>
+    </div>
+    <div style="display: table-row; ">
+        <div class="flex-item" style="text-align: left; display: table-cell">
+            <p class="text_row" align=""><b>OBRA O LABOR CONTRATADA:</b></p>
+        </div>
+        <div class="flex-item" style=" margin: auto; text-align: left; display:table-cell">
+            <p class="text_row" align="">{{ contract_position_description }}</p>
+        </div>
+    </div>
+</div>
 <br>
 <div class="block">
     <p class="text">
@@ -161,7 +205,7 @@
         otros EMPLEADORES, ni a trabajar por cuenta propia en el mismo oficio, durante la vigencia de este contrato; y
         c) a guardar absoluta reserva sobre los hechos, documentos físicos y/o electrónicos, informaciones y en general,
         sobre todos los asuntos y materia que lleguen a su conocimiento por causa o con ocasión de su contrato de
-        trabajo. <b>PARÁGRAFO PRIMERO:</b> El contenido de la cláusula Décima Sexta que trata de las Obligaciones
+        trabajo. <b>PARÁGRAFO PRIMERO:</b> El contenido de la cláusula Décima Octava que trata de las Obligaciones
         especiales,
         es general y no excluye ni limita para ejecutar labores conexas complementarias, asesorías o similares y en
         general aquellas que sean necesarias para un mejor resultado en la ejecución de la causa que dio origen al
