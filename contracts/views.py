@@ -104,6 +104,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         wkhtmltopdf_bin = os.environ.get('WKHTMLTOPDF_BIN')
         if wkhtmltopdf_bin:
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
+        print(options)
         pdf = pdfkit.from_string(html, False, options, **kwargs)
         return pdf
 
