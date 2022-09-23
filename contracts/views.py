@@ -86,16 +86,13 @@ class PDFView(LoginRequiredMixin, TemplateView):
 
         media_url = '%s://%s%s' % (self.request.scheme, self.request.get_host(), settings.MEDIA_URL)
         c = Contract.objects.get(pk=kwargs.get('pk'))
-        print(media_url)
-        print(c.employer.letterhead_header)
-        print(c.employer.letterhead_footer)
         if c.employer.letterhead_header:
-            options['header-html'] = f"{media_url}{c.employer.letterhead_header}"
+            options['--header-html'] = f"{media_url}{c.employer.letterhead_header}"
         else:
             options['header-html'] = 'templates/contracts/header.html'
 
         if c.employer.letterhead_footer:
-            options['footer-html'] = f"{media_url}{c.employer.letterhead_footer}"
+            options['--footer-html'] = f"{media_url}{c.employer.letterhead_footer}"
         else:
             options['footer-html'] = 'templates/contracts/footer.html'
         # options['header-right'] = "Proceso desarrollo económico e innovación"
