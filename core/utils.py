@@ -144,6 +144,8 @@ class PDFKit(object):
         else:
             input = None
         print("antes de 2")
+        print(result)
+        print(input)
         stdout, stderr = result.communicate(input=input)
         print("antes de 3")
         stderr = stderr or stdout
