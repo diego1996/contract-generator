@@ -22,6 +22,8 @@ services:
     ports:
       - "8000"
     restart: unless-stopped
+    depends_on:
+      - minio
   minio:
     container_name: minio
     build:
