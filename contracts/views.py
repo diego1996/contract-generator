@@ -96,6 +96,8 @@ class PDFView(LoginRequiredMixin, TemplateView):
             options['--footer-html'] = f"{media_url}/{c.employer.letterhead_footer}"
         else:
             options['footer-html'] = 'templates/contracts/footer.html'
+
+        options['header-html'] = "http://s3-us-west-2.amazonaws.com/oa2/docfiles/5463d01c6f706554720b0100/5463d01c6f706554720b0100.html"
         # options['header-right'] = "Proceso desarrollo económico e innovación"
 
         if 'debug' in self.request.GET and settings.DEBUG:
