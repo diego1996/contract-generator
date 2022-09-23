@@ -148,25 +148,25 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 CORS_ALLOW_ALL_ORIGINS = True
 
 
+if not DEBUG:
+    # Static and Media Minio S3 - django-minio-storage
+    INSTALLED_APPS += ['minio_storage']
+    MINIO_HTTPS = os.getenv('MINIO_HTTPS')
+    MINIO_HOST = os.getenv('MINIO_HOST')
+    MINIO_URL = os.getenv('MINIO_URL')
+    MINIO_PORT = os.getenv('MINIO_PORT')
+    MEDIA_BUCKET = os.getenv('MEDIA_BUCKET')
+    STATIC_BUCKET = os.getenv('STATIC_BUCKET')
 
-# Static and Media Minio S3 - django-minio-storage
-INSTALLED_APPS += ['minio_storage']
-MINIO_HTTPS = os.getenv('MINIO_HTTPS')
-MINIO_HOST = os.getenv('MINIO_HOST')
-MINIO_URL = os.getenv('MINIO_URL')
-MINIO_PORT = os.getenv('MINIO_PORT')
-MEDIA_BUCKET = os.getenv('MEDIA_BUCKET')
-STATIC_BUCKET = os.getenv('STATIC_BUCKET')
+    DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
+    STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
+    MINIO_STORAGE_ENDPOINT = f"{MINIO_HOST}:{MINIO_PORT}"
+    MINIO_STORAGE_ACCESS_KEY = os.getenv('MINIO_ACCESS_KEY', '')
+    MINIO_STORAGE_SECRET_KEY = os.getenv('MINIO_SECRET_KEY', '')
+    MINIO_STORAGE_USE_HTTPS = MINIO_HTTPS
+    MINIO_STORAGE_MEDIA_BUCKET_NAME = MEDIA_BUCKET
+    MINIO_STORAGE_STATIC_BUCKET_NAME = STATIC_BUCKET
 
-DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
-STATICFILES_STORAGE = "minio_storage.storage.MinioStaticStorage"
-MINIO_STORAGE_ENDPOINT = f"{MINIO_HOST}:{MINIO_PORT}"
-MINIO_STORAGE_ACCESS_KEY = os.getenv('MINIO_ACCESS_KEY', '')
-MINIO_STORAGE_SECRET_KEY = os.getenv('MINIO_SECRET_KEY', '')
-MINIO_STORAGE_USE_HTTPS = MINIO_HTTPS
-MINIO_STORAGE_MEDIA_BUCKET_NAME = MEDIA_BUCKET
-MINIO_STORAGE_STATIC_BUCKET_NAME = STATIC_BUCKET
-
-# These settings should generally not be used:
-MINIO_STORAGE_MEDIA_URL = f"https://{MINIO_URL}/{MEDIA_BUCKET}"
-MINIO_STORAGE_STATIC_URL = f"https://{MINIO_URL}/{STATIC_BUCKET}"
+    # These settings should generally not be used:
+    MINIO_STORAGE_MEDIA_URL = f"https://{MINIO_URL}/{MEDIA_BUCKET}"
+    MINIO_STORAGE_STATIC_URL = f"https://{MINIO_URL}/{STATIC_BUCKET}"

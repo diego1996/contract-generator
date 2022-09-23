@@ -370,9 +370,11 @@
     <p class="text" align="">
         <b>DÉCIMA OCTAVA: OBLIGACIONES ESPECIALES.</b> El cargo de {{ contract_position }}, es responsable en su
         totalidad de las siguientes labores de apoyo técnico y administrativo:
-        {% for activity in contract_activities %}
+        {{ contract_special_activities }}
+
+        {% comment %}{% for activity in contract_activities %}
             <b> {{ forloop.counter }}. {{ activity.title }}.</b> {{ activity.description }}
-        {% endfor %}
+        {% endfor %}{% endcomment %}
     </p>
     <p class="text" align="">
         <b>DÉCIMA NOVENA: BENEFICIOS EXTRALEGALES.</b> El EMPLEADOR podrá reconocer beneficios, primas, prestaciones de
