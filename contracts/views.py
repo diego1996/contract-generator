@@ -100,9 +100,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
             options['footer-html'] = 'templates/contracts/footer.html'
         # options['header-right'] = "Proceso desarrollo económico e innovación"
 
-        print("options")
-        print(options)
-
         if 'debug' in self.request.GET and settings.DEBUG:
             options['debug-javascript'] = '1'
 
@@ -110,7 +107,10 @@ class PDFView(LoginRequiredMixin, TemplateView):
         wkhtmltopdf_bin = os.environ.get('WKHTMLTOPDF_BIN')
         if wkhtmltopdf_bin:
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
+
+        print("options")
         pdf = pdfkit.from_string(html, False, options, **kwargs)
+        print(options)
         return pdf
 
     def get_pdfkit_options(self):
