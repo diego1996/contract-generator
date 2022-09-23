@@ -100,6 +100,9 @@ class PDFView(LoginRequiredMixin, TemplateView):
             options['footer-html'] = 'templates/contracts/footer.html'
         # options['header-right'] = "Proceso desarrollo económico e innovación"
 
+        print("options")
+        print(options)
+
         if 'debug' in self.request.GET and settings.DEBUG:
             options['debug-javascript'] = '1'
 
