@@ -6,7 +6,7 @@ networks:
       name: osv-proxy_osv_network
 
 volumes:
-  prod_media_data: { }
+  contracts_media_data: { }
 
 services:
   contracts: &contracts
@@ -34,5 +34,5 @@ services:
     env_file:
       - ./.envs/.minio
     volumes:
-      - prod_media_data:/data
+      - contracts_media_data:/data
     restart: unless-stopped
