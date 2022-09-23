@@ -88,12 +88,12 @@ class PDFView(LoginRequiredMixin, TemplateView):
         c = Contract.objects.get(pk=kwargs.get('pk'))
         print()
         if c.employer.letterhead_header:
-            options['header-html'] = f"{media_url}/{c.employer.letterhead_header}"
+            options['header-html'] = f"{media_url}{c.employer.letterhead_header}"
         else:
             options['header-html'] = 'templates/contracts/header.html'
 
         if c.employer.letterhead_footer:
-            options['footer-html'] = f"{media_url}/{c.employer.letterhead_footer}"
+            options['footer-html'] = f"{media_url}{c.employer.letterhead_footer}"
         else:
             options['footer-html'] = 'templates/contracts/footer.html'
         # options['header-right'] = "Proceso desarrollo económico e innovación"
