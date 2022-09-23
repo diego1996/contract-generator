@@ -13,6 +13,7 @@ from django.test import override_settings
 from django.views.generic import TemplateView
 
 from contracts.models import Contract
+from core.utils import from_string
 
 
 class PDFView(LoginRequiredMixin, TemplateView):
@@ -106,7 +107,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
 
         print("options")
-        pdf = pdfkit.from_string(html, False, options, **kwargs)
+        pdf = from_string(html, False, options, **kwargs)
         print(options)
         return pdf
 
