@@ -122,6 +122,8 @@ class PDFView(LoginRequiredMixin, TemplateView):
             'margin-bottom': '1.0in',
             'margin-right': '0in',
             'margin-left': '0in',
+            'load-error-handling': 'ignore',
+            'load-media-error-handling': 'ignore',
         }
 
     def get_filename(self):
