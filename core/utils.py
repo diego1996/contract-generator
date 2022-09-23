@@ -129,8 +129,7 @@ class PDFKit(object):
         print("entra al")
         args = self.command(path)
         print(args)
-        '''
-        [
+        args = [
             '/usr/local/bin/wkhtmltopdf', 
             '--dpi', '300', 
             '--page-size', 
@@ -140,11 +139,10 @@ class PDFKit(object):
             '--header-spacing', '15', '--footer-spacing', '1', '--margin-top', '1.0in', '--margin-bottom', '1.0in', 
             '--margin-right', '0in', '--margin-left', '0in', 
             '--footer-font-size', '9', 
-            '--header-html', 'http://contratos.observatoriodesaludvillavicencio.org/media/employer/1/letterhead/header_5RwrVJg.html',
+            '--header-html', 'https://contratos.observatoriodesaludvillavicencio.org/media/employer/1/letterhead/header_5RwrVJg.html',
             '--footer-html', 'templates/contracts/footer.html', 
             '-', '-'
         ]
-        '''
         result = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         # If the source is a string then we will pipe it into wkhtmltopdf.
