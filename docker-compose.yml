@@ -23,8 +23,8 @@ services:
       - "8000"
     restart: unless-stopped
     depends_on:
-      - minio
-  minio:
+      - minio_2
+  minio_2:
     container_name: minio
     build:
       context: .

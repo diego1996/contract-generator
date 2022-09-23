@@ -49,7 +49,8 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context['employee_name'] = contract.employee.name.upper()
             context['employee_identification_type'] = contract.employee.identification_type.upper()
             context['employee_identification_number'] = contract.employee.identification_number.upper()
-            context['employee_identification_expedition_place'] = contract.employee.identification_expedition_place.upper()
+            context[
+                'employee_identification_expedition_place'] = contract.employee.identification_expedition_place.upper()
             context['employee_address'] = contract.employee.address.upper()
             context['employee_cellphone'] = contract.employee.cellphone.upper()
             context['employee_email'] = contract.employee.email
@@ -84,8 +85,9 @@ class PDFView(LoginRequiredMixin, TemplateView):
         # options['footer-right'] = "Registrado SIG: 15/10/2021"
         # options['header-font-size'] = '9'
 
-        media_url = '%s://%s%s' % (self.request.scheme, self.request.get_host(), settings.MEDIA_URL)
-        media_url = settings.MINIO_STORAGE_MEDIA_URL
+        media_url = settings.MINIO_STORAGE_MEDIA_URL or '%s://%s%s' % (
+            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
+        )
         c = Contract.objects.get(pk=kwargs.get('pk'))
         if c.employer.letterhead_header:
             options['--header-html'] = f"{media_url}/{c.employer.letterhead_header}"
