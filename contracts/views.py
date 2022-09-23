@@ -86,11 +86,10 @@ class PDFView(LoginRequiredMixin, TemplateView):
 
         media_url = '%s://%s%s' % (self.request.scheme, self.request.get_host(), settings.MEDIA_URL)
         c = Contract.objects.get(pk=kwargs.get('pk'))
-        print(f"{media_url}{c.employer.letterhead_header}")
         if c.employer.letterhead_header:
             options['header-html'] = f"{media_url}{c.employer.letterhead_header}"
         else:
-            options['header-html'] = 'templates/contracts/header.html'
+            options['header-html'] = 'https://contratos.observatoriodesaludvillavicencio.org/media/employer/1/letterhead/header_Zq3zsgq.html'
 
         if c.employer.letterhead_footer:
             options['footer-html'] = f"{media_url}{c.employer.letterhead_footer}"
