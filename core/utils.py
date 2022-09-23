@@ -128,7 +128,7 @@ class PDFKit(object):
     def to_pdf(self, path=None):
         print("entra al")
         args = self.command(path)
-
+        print(args)
         result = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                   stderr=subprocess.PIPE)
 
@@ -137,6 +137,11 @@ class PDFKit(object):
         # string and prepend css to it and then pass it to stdin.
         # This is a workaround for a bug in wkhtmltopdf (look closely in README)
         print("antes de")
+        print(self.source.isString())
+        print(self.source.isFile())
+        print(self.css)
+        print(self.source.isString() or (self.source.isFile() and self.css))
+        print(self.source.isFileObj())
         if self.source.isString() or (self.source.isFile() and self.css):
             input = self.source.to_s().encode('utf-8')
         elif self.source.isFileObj():
