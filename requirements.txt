@@ -4,6 +4,7 @@ django-colorfield
 django-cors-headers
 django-extensions
 django-money
+django-cleanup
 pdfkit
 gunicorn
 mysqlclient

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'colorfield',
     'djmoney',
+    'django_cleanup.apps.CleanupConfig',
     'contracts.apps.ContractsConfig',
 ]
 

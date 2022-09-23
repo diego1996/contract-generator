@@ -83,8 +83,12 @@ class PDFView(LoginRequiredMixin, TemplateView):
         # options['footer-center'] = "Página [page] de [topage]"
         # options['footer-right'] = "Registrado SIG: 15/10/2021"
         # options['header-font-size'] = '9'
-        options['header-html'] = 'templates/contracts/header.html'
-        options['footer-html'] = 'templates/contracts/footer.html'
+
+        media_url = '%s://%s%s' % (self.request.scheme, self.request.get_host(), settings.MEDIA_URL)
+        c = Contract.objects.get(pk=kwargs.get('pk'))
+        print()
+        options['header-html'] = f"{media_url}/{c.employer.letterhead_header}"
+        options['footer-html'] = f"{media_url}/{c.employer.letterhead_footer}"
         # options['header-right'] = "Proceso desarrollo económico e innovación"
 
         if 'debug' in self.request.GET and settings.DEBUG:
