@@ -5,6 +5,7 @@ django-cors-headers
 django-extensions
 django-money
 django-cleanup
+django-minio-storage
 pdfkit
 gunicorn
 mysqlclient

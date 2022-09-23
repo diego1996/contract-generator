@@ -13,7 +13,6 @@ from django.test import override_settings
 from django.views.generic import TemplateView
 
 from contracts.models import Contract
-from core.utils import from_string
 
 
 class PDFView(LoginRequiredMixin, TemplateView):
@@ -105,10 +104,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         wkhtmltopdf_bin = os.environ.get('WKHTMLTOPDF_BIN')
         if wkhtmltopdf_bin:
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
-
-        print("options")
-        pdf = from_string(html, False, options, **kwargs)
-        print(options)
+        pdf = pdfkit.from_string(html, False, options, **kwargs)
         return pdf
 
     def get_pdfkit_options(self):
@@ -124,7 +120,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
             'margin-bottom': '1.0in',
             'margin-right': '0in',
             'margin-left': '0in',
-            'enable-local-file-access': None,
         }
 
     def get_filename(self):

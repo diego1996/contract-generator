@@ -5,6 +5,9 @@ networks:
     external:
       name: osv-proxy_osv_network
 
+volumes:
+  prod_media_data: { }
+
 services:
   contracts: &contracts
     container_name: contracts
@@ -18,4 +21,16 @@ services:
       - ./.envs/.api
     ports:
       - "8000"
+    restart: unless-stopped
+  minio:
+    container_name: minio
+    build:
+      context: .
+      dockerfile: ./services/minio/Dockerfile
+    ports:
+      - "9000:9000"
+    env_file:
+      - ./../.envs/.minio
+    volumes:
+      - prod_media_data:/data
     restart: unless-stopped
