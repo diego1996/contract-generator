@@ -125,7 +125,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
             'margin-right': '0in',
             'margin-left': '0in',
             'enable-local-file-access': None,
-            'javascript-delay': 2000000
         }
 
     def get_filename(self):
