@@ -85,6 +85,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         # options['header-font-size'] = '9'
 
         media_url = '%s://%s%s' % (self.request.scheme, self.request.get_host(), settings.MEDIA_URL)
+        media_url = settings.MINIO_STORAGE_MEDIA_URL
         c = Contract.objects.get(pk=kwargs.get('pk'))
         if c.employer.letterhead_header:
             options['--header-html'] = f"{media_url}{c.employer.letterhead_header}"
