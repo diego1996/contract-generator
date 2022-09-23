@@ -145,6 +145,7 @@ class PDFKit(object):
             input = None
         print("antes de 2")
         print(result)
+        print(input)
         stdout, stderr = result.communicate(input=input)
         print("antes de 3")
         stderr = stderr or stdout
@@ -155,6 +156,7 @@ class PDFKit(object):
             stderr = ''
         exit_code = result.returncode
         print("desps de")
+        print(exit_code)
         if 'cannot connect to X server' in stderr:
             raise IOError('%s\n'
                           'You will need to run wkhtmltopdf within a "virtual" X server.\n'
