@@ -89,7 +89,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         if c.employer.letterhead_header:
             options['header-html'] = f"{media_url}{c.employer.letterhead_header}"
         else:
-            options['header-html'] = 'https://contratos.observatoriodesaludvillavicencio.org/media/employer/1/letterhead/header_Zq3zsgq.html'
+            options['header-html'] = 'templates/contracts/header.html'
 
         if c.employer.letterhead_footer:
             options['footer-html'] = f"{media_url}{c.employer.letterhead_footer}"
