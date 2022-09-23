@@ -32,7 +32,7 @@ services:
     ports:
       - "9000:9000"
     env_file:
-      - ./../.envs/.minio
+      - ./.envs/.minio
     volumes:
       - prod_media_data:/data
     restart: unless-stopped
