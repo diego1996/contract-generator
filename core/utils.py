@@ -145,7 +145,9 @@ class PDFKit(object):
             input = None
         print("antes de 2")
         stdout, stderr = result.communicate(input=input)
+        print("antes de 3")
         stderr = stderr or stdout
+        print("antes de 4")
         try:
             stderr = stderr.decode('utf-8')
         except UnicodeDecodeError:
