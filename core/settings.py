@@ -137,7 +137,8 @@ LOGIN_URL = '/admin/'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://contratos.observatoriodesaludvillavicencio.org',
-    'https://contratos.observatoriodesaludvillavicencio.org'
+    'https://contratos.observatoriodesaludvillavicencio.org',
+    'https://*.ingeomaq.com'
 ]
 
 # Security
