@@ -107,7 +107,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
             options['header-html'] = 'templates/contracts/header.html'
             options['footer-html'] = 'templates/contracts/footer.html'
 
-        print(options)
         try:
             pdf = pdfkit.from_string(html, False, options, **kwargs)
         finally:
@@ -145,7 +144,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
         with override_settings(STATIC_URL=static_url, MEDIA_URL=media_url):
             template = loader.get_template(self.template_name)
             context = self.get_context_data(**kwargs)
-            print("context general", context)
             html = template.render(context)
             return html
 
@@ -160,7 +158,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
             with tempfile.NamedTemporaryFile(suffix='.html', delete=False) as header:
                 options[option_name] = header.name
                 context = self.get_context_data(**kwargs)
-                print("context render", context)
                 header.write(loader.render_to_string(template_path, context).encode('utf-8'))
                 header.flush()
 
