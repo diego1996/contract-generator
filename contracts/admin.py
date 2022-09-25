@@ -9,7 +9,7 @@ class ActivityInline(admin.TabularInline):
     extra = 0
 
 
-@admin.register(Activity)
+# @admin.register(Activity)
 class ActivityAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     search_fields = ('title', 'description')
