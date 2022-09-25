@@ -1,11 +1,11 @@
 version: '3'
 
 networks:
-  default:
-    external:
-      name: osv-proxy_osv_network
+  network:
+    driver: bridge
 
 volumes:
+  https-portal-data: # Recommended, to avoid re-signing when upgrading HTTPS-PORTAL
   contracts_media_data: { }
 
 services:
@@ -22,6 +22,8 @@ services:
     ports:
       - "8000"
     restart: unless-stopped
+    networks:
+      - network
     depends_on:
       - minio
   minio:
@@ -35,4 +37,20 @@ services:
       - ./.envs/.minio
     volumes:
       - contracts_media_data:/data
+    networks:
+      - network
+    restart: unless-stopped
+  https-portal:
+    container_name: reverse_proxy
+    image: steveltn/https-portal:1
+    ports:
+      - '80:80'
+      - '443:443'
+    env_file:
+      - ./.envs/.proxy
+    volumes:
+      - https-portal-data:/var/lib/https-portal
+      - /var/run/docker.sock:/var/run/docker.sock:ro # DANGEROUS, see the warning above
+    networks:
+      - network
     restart: unless-stopped
