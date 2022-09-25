@@ -134,7 +134,7 @@ LOGIN_URL = '/admin/'
 CSRF_TRUSTED_ORIGINS = [
     'http://contratos.observatoriodesaludvillavicencio.org',
     'https://contratos.observatoriodesaludvillavicencio.org',
-    'https://misdocumentos.live'
+    'https://misdocumentos.live',
     'https://www.misdocumentos.live'
 ]
 
