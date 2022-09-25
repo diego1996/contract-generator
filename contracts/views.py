@@ -96,7 +96,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
         wkhtmltopdf_bin = os.environ.get('WKHTMLTOPDF_BIN')
         if wkhtmltopdf_bin:
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
-        print(options)
 
         if platform != "win32":
             options['header-html'] = 'templates/contracts/header.html'
@@ -105,6 +104,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             self.render_temp_html('contracts/temp/header.html', 'header-html', options, **kwargs)
             self.render_temp_html('contracts/temp/footer.html', 'footer-html', options, **kwargs)
 
+        print(options)
         try:
             pdf = pdfkit.from_string(html, False, options, **kwargs)
         finally:
