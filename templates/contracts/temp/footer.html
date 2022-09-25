@@ -17,7 +17,9 @@
 </head>
 <body>
 <div class="header-right">
-    <img class="img-opacity" src="https://i.ibb.co/CnP0hWd/ingeomaq-footer.png" width="100%" alt="Pie de página"/>
+    {% if employer_footer %}
+        <img class="img-opacity" src="{{ employer_footer }}" width="100%" alt="Pie de página"/>
+    {% endif %}
 </div>
 </body>
 </html>

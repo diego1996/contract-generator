@@ -6,6 +6,7 @@ import pdfkit
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
+from sys import platform
 from django.shortcuts import render
 
 # Create your views here.
@@ -88,9 +89,6 @@ class PDFView(LoginRequiredMixin, TemplateView):
         # options['footer-right'] = ""
         # options['header-font-size'] = '9'
 
-        self.render_temp_html('contracts/header.html', 'header-html', options, **kwargs)
-        self.render_temp_html('contracts/footer.html', 'footer-html', options, **kwargs)
-
         if 'debug' in self.request.GET and settings.DEBUG:
             options['debug-javascript'] = '1'
 
@@ -99,10 +97,19 @@ class PDFView(LoginRequiredMixin, TemplateView):
         if wkhtmltopdf_bin:
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
         print(options)
+
+        if platform != "win32":
+            options['header-html'] = 'templates/contracts/header.html'
+            options['footer-html'] = 'templates/contracts/footer.html'
+        else:
+            self.render_temp_html('contracts/temp/header.html', 'header-html', options, **kwargs)
+            self.render_temp_html('contracts/temp/footer.html', 'footer-html', options, **kwargs)
+
         try:
             pdf = pdfkit.from_string(html, False, options, **kwargs)
         finally:
-            os.remove(options['header-html'])
+            pass
+            # os.remove(options['header-html'])
         return pdf
 
     def get_pdfkit_options(self):

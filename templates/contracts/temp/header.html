@@ -5,19 +5,24 @@
     <style type="text/css">
         .header-right {
             position: relative;
-            margin-left: -10px;
-            margin-right: -10px;
+            top: 1px;
+            left: 0;
+            right: 0;
+            margin-right: 5%;
+            text-align: right;
         }
 
         .img-opacity {
             background-color: rgba(255, 255, 255, 0.1);
         }
     </style>
-    <title>Pie de página</title>
+    <title>Cabecera</title>
 </head>
 <body>
 <div class="header-right">
-    <img class="img-opacity" src="https://i.ibb.co/CnP0hWd/ingeomaq-footer.png" width="100%" alt="Pie de página"/>
+    {% if employer_logo %}
+        <img class="img-opacity" src="{{ employer_logo }}" width="250px" align="right" alt="Logo"/>
+    {% endif %}
 </div>
 </body>
 </html>
