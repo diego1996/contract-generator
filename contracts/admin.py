@@ -60,7 +60,7 @@ class ContractAdmin(admin.ModelAdmin):
         'employer__name', 'employee__name', 'contract_date', 'contract_city__name', 'place_work', 'position_description'
     )
     list_filter = ('employer', 'employee', 'type', 'paid_period')
-    inlines = (ActivityInline, )
+    # inlines = (ActivityInline, )
     exclude = ('activities', )
 
     @admin.display(description='Convenio')
