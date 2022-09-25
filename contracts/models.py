@@ -143,7 +143,7 @@ class Contract(models.Model):
     test_period_duration = models.CharField(
         verbose_name='Duración del periodo de prueba', max_length=100, default='dieciocho (18) días'
     )
-    special_activities = models.TextField(verbose_name='Trabajo o labor contratada', max_length=100000, default='')
+    special_activities = models.TextField(verbose_name='Actividades especiales del contrato', max_length=100000, default='')
     activities = models.ManyToManyField(Activity, verbose_name='Actividades especiales del contrato')
 
     class Meta:
