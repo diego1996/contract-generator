@@ -14,6 +14,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='employer',
             name='letterhead_header',
-            field=models.FileField(blank=True, null=True, upload_to=contracts.models.get_letterhead_upload_path, verbose_name='Membrete para documentos (cabecera)'),
+            field=models.FileField(blank=True, null=True, upload_to=contracts.models.get_employer_upload_path, verbose_name='Membrete para documentos (cabecera)'),
         ),
     ]

@@ -15,8 +15,8 @@ class City(models.Model):
         return self.name
 
 
-def get_letterhead_upload_path(instance, filename):
-    return f'employer/{instance.pk}/letterhead/{filename}'
+def get_employer_upload_path(instance, filename):
+    return f'employer/{instance.pk}/images/{filename}'
 
 
 class Employer(models.Model):
@@ -25,15 +25,8 @@ class Employer(models.Model):
     address = models.CharField(verbose_name='Dirección del empleador', max_length=200)
     city = models.ForeignKey(City, verbose_name='Ciudad de domicilio', on_delete=models.CASCADE)
     legal_representative = models.CharField(verbose_name='Representante legal', max_length=800)
-    logo = models.ImageField(verbose_name='Logo de la empresa', upload_to='employer/logo/')
-    letterhead_header = models.FileField(
-        verbose_name='Membrete para documentos (cabecera)', upload_to=get_letterhead_upload_path,
-        blank=True, null=True
-    )
-    letterhead_footer = models.FileField(
-        verbose_name='Membrete para documentos (pie de página)', upload_to=get_letterhead_upload_path,
-        blank=True, null=True
-    )
+    logo = models.ImageField(verbose_name='Logo', upload_to=get_employer_upload_path, null=True, blank=True)
+    footer = models.ImageField(verbose_name='Pie de página', upload_to=get_employer_upload_path, null=True, blank=True)
 
     class Meta:
         verbose_name = 'Empleador'

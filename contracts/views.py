@@ -1,4 +1,5 @@
 import os
+import tempfile
 from os.path import splitext, basename
 
 import pdfkit
@@ -41,7 +42,8 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context['contract_test_period_duration'] = contract.test_period_duration
             context['contract_activities'] = contract.activities.all()
             context['contract_special_activities'] = contract.special_activities
-            context['employer_logo'] = contract.employer.logo.url
+            context['employer_logo'] = f'{contract.employer.logo.url}'
+            context['employer_footer'] = f'{contract.employer.footer.url}'
             context['employer_name'] = contract.employer.name.upper()
             context['employer_nit'] = contract.employer.nit.upper()
             context['employer_address'] = contract.employer.address.upper()
@@ -83,25 +85,11 @@ class PDFView(LoginRequiredMixin, TemplateView):
         options['footer-font-size'] = '9'
         # options['footer-left'] = "1252-F-GDE-36-V1"
         # options['footer-center'] = "Página [page] de [topage]"
-        # options['footer-right'] = "Registrado SIG: 15/10/2021"
+        # options['footer-right'] = ""
         # options['header-font-size'] = '9'
 
-        media_url = settings.MINIO_STORAGE_MEDIA_URL or '%s://%s%s' % (
-            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
-        )
-        c = Contract.objects.get(pk=kwargs.get('pk'))
-        if c.employer.letterhead_header:
-            options['--header-html'] = f"{media_url}/{c.employer.letterhead_header}"
-        else:
-            options['header-html'] = 'templates/contracts/header.html'
-
-        if c.employer.letterhead_footer:
-            options['--footer-html'] = f"{media_url}/{c.employer.letterhead_footer}"
-        else:
-            options['footer-html'] = 'templates/contracts/footer.html'
-
-        # options['header-html'] = "http://s3-us-west-2.amazonaws.com/oa2/docfiles/5463d01c6f706554720b0100/5463d01c6f706554720b0100.html"
-        # options['header-right'] = "Proceso desarrollo económico e innovación"
+        self.render_temp_html('contracts/header.html', 'header-html', options, **kwargs)
+        self.render_temp_html('contracts/footer.html', 'footer-html', options, **kwargs)
 
         if 'debug' in self.request.GET and settings.DEBUG:
             options['debug-javascript'] = '1'
@@ -111,7 +99,10 @@ class PDFView(LoginRequiredMixin, TemplateView):
         if wkhtmltopdf_bin:
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
         print(options)
-        pdf = pdfkit.from_string(html, False, options, **kwargs)
+        try:
+            pdf = pdfkit.from_string(html, False, options, **kwargs)
+        finally:
+            os.remove(options['header-html'])
         return pdf
 
     def get_pdfkit_options(self):
@@ -127,8 +118,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             'margin-bottom': '1.0in',
             'margin-right': '0in',
             'margin-left': '0in',
-            'load-error-handling': 'ignore',
-            'load-media-error-handling': 'ignore',
+            'load-error-handling': 'skip'
         }
 
     def get_filename(self):
@@ -147,3 +137,27 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context = self.get_context_data(**kwargs)
             html = template.render(context)
             return html
+
+    def render_temp_html(self, template_path, option_name, options, **kwargs):
+        static_url = settings.MINIO_STORAGE_STATIC_URL or '%s://%s%s' % (
+            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
+        )
+        media_url = settings.MINIO_STORAGE_MEDIA_URL or '%s://%s%s' % (
+            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
+        )
+        with override_settings(STATIC_URL=static_url, MEDIA_URL=media_url):
+            with tempfile.NamedTemporaryFile(suffix='.html', delete=False) as header:
+                options[option_name] = header.name
+                context = self.get_context_data(**kwargs)
+                header.write(loader.render_to_string(template_path, context).encode('utf-8'))
+                header.flush()
+
+    def with_config(self, method):
+        static_url = settings.MINIO_STORAGE_STATIC_URL or '%s://%s%s' % (
+            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
+        )
+        media_url = settings.MINIO_STORAGE_MEDIA_URL or '%s://%s%s' % (
+            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
+        )
+        with override_settings(STATIC_URL=static_url, MEDIA_URL=media_url):
+            method()

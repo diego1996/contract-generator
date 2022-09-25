@@ -156,9 +156,8 @@ MINIO_PORT = os.getenv('MINIO_PORT')
 MEDIA_BUCKET = os.getenv('MEDIA_BUCKET', '')
 STATIC_BUCKET = os.getenv('STATIC_BUCKET')
 
-# These settings should generally not be used:
-MINIO_STORAGE_MEDIA_URL = f"https://{MINIO_URL}/{MEDIA_BUCKET}"
-MINIO_STORAGE_STATIC_URL = f"https://{MINIO_URL}/{STATIC_BUCKET}"
+MINIO_STORAGE_MEDIA_URL = None
+MINIO_STORAGE_STATIC_URL = None
 
 if not DEBUG:
     DEFAULT_FILE_STORAGE = "minio_storage.storage.MinioMediaStorage"
@@ -169,3 +168,7 @@ if not DEBUG:
     MINIO_STORAGE_USE_HTTPS = MINIO_HTTPS
     MINIO_STORAGE_MEDIA_BUCKET_NAME = MEDIA_BUCKET
     MINIO_STORAGE_STATIC_BUCKET_NAME = STATIC_BUCKET
+
+    # These settings should generally not be used:
+    MINIO_STORAGE_MEDIA_URL = f"https://{MINIO_URL}/{MEDIA_BUCKET}"
+    MINIO_STORAGE_STATIC_URL = f"https://{MINIO_URL}/{STATIC_BUCKET}"
