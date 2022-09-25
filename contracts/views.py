@@ -41,8 +41,8 @@ class PDFView(LoginRequiredMixin, TemplateView):
         context['contract_paid_period'] = contract.paid_period.name.upper()
         context['contract_test_period_duration'] = contract.test_period_duration
         context['contract_activities'] = contract.activities.all()
-        context['employer_logo'] = contract.employer.logo.url
-        context['employer_footer'] = contract.employer.footer.url
+        context['employer_logo'] = contract.employer.logo.url if contract.employer.logo else None
+        context['employer_footer'] = contract.employer.footer.url if contract.employer.footer else None
         context['employer_name'] = contract.employer.name.upper()
         context['employer_nit'] = contract.employer.nit.upper()
         context['employer_address'] = contract.employer.address.upper()
