@@ -100,18 +100,16 @@ class PDFView(LoginRequiredMixin, TemplateView):
             kwargs['configuration'] = pdfkit.configuration(wkhtmltopdf=wkhtmltopdf_bin)
 
         platforms = ["win32", "linux", "linux2"]
-        if platform in platforms:
-            self.render_temp_html('contracts/temp/header.html', 'header-html', options, **kwargs)
-            self.render_temp_html('contracts/temp/footer.html', 'footer-html', options, **kwargs)
-        else:
-            options['header-html'] = 'templates/contracts/header.html'
-            options['footer-html'] = 'templates/contracts/footer.html'
+        self.render_temp_html('contracts/temp/header.html', 'header-html', options, **kwargs)
+        self.render_temp_html('contracts/temp/footer.html', 'footer-html', options, **kwargs)
+        # options['header-html'] = 'templates/contracts/header.html'
+        # options['footer-html'] = 'templates/contracts/footer.html'
 
         try:
             pdf = pdfkit.from_string(html, False, options, **kwargs)
         finally:
-            pass
-            # os.remove(options['header-html'])
+            os.remove(options['header-html'])
+            os.remove(options['footer-html'])
         return pdf
 
     def get_pdfkit_options(self):
@@ -160,13 +158,3 @@ class PDFView(LoginRequiredMixin, TemplateView):
                 context = self.get_context_data(**kwargs)
                 header.write(loader.render_to_string(template_path, context).encode('utf-8'))
                 header.flush()
-
-    def with_config(self, method):
-        static_url = settings.MINIO_STORAGE_STATIC_URL or '%s://%s%s' % (
-            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
-        )
-        media_url = settings.MINIO_STORAGE_MEDIA_URL or '%s://%s%s' % (
-            self.request.scheme, self.request.get_host(), settings.MEDIA_URL
-        )
-        with override_settings(STATIC_URL=static_url, MEDIA_URL=media_url):
-            method()
