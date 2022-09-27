@@ -27,6 +27,11 @@ urlpatterns = [
         name="confidentiality_pdf"
     ),
     path(
+        'admin/contracts/contract/<int:pk>/documents/resignation/',
+        PDFView.as_view(template_name='contracts/job-resignation-letter.html'),
+        name="resignation_pdf"
+    ),
+    path(
         'admin/contracts/contract/<int:pk>/documents/contract/',
         PDFView.as_view(template_name='contracts/individual-employment-contract.html'),
         name="contract_pdf"

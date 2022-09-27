@@ -115,6 +115,7 @@ class Activity(models.Model):
 class Contract(models.Model):
     consecutive = models.CharField(verbose_name='Consecutivo del contrato', unique=True, max_length=10, default='')
     contract_date = models.DateField(verbose_name='Fecha del contrato', null=True, blank=True)
+    resignation_date = models.DateField(verbose_name='Fecha resignación del contrato', null=True, blank=True)
     contract_city = models.ForeignKey(
         City, verbose_name='Ciudad', related_name='contract_city', on_delete=models.CASCADE
     )
@@ -157,6 +158,9 @@ class Contract(models.Model):
     )
     contract_signed = models.FileField(
         verbose_name='Contrato firmado', blank=True, null=True, upload_to=get_employee_upload_path
+    )
+    resignation_signed = models.FileField(
+        verbose_name='Resignación firmada', blank=True, null=True, upload_to=get_employee_upload_path
     )
 
     class Meta:

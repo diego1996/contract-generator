@@ -57,8 +57,8 @@ class EmployeeAdmin(admin.ModelAdmin):
 class ContractAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'employer', 'employee', 'type', 'position',
-        'confidentiality_signed', 'contract_signed',
-        'view_confidentiality_agreement_pdf', 'view_contract_pdf'
+        'confidentiality_signed', 'contract_signed', 'resignation_signed',
+        'view_confidentiality_agreement_pdf', 'view_contract_pdf', 'view_resignation_pdf'
     )
     search_fields = (
         'employer__name', 'employee__name', 'contract_date', 'contract_city__name', 'place_work', 'position_description'
@@ -77,3 +77,9 @@ class ContractAdmin(ImportExportModelAdmin):
     @admin.display(description='Contrato (en blanco)')
     def view_contract_pdf(self, obj):
         return format_html(f"<a href='{obj.id}/documents/contract/' target='_blank'>Contrato</a>")
+
+    @admin.display(description='Resignación (en blanco)')
+    def view_resignation_pdf(self, obj):
+        return format_html(
+            f"<a href='{obj.id}/documents/resignation/' target='_blank'>Resignación</a>"
+        )

@@ -12,6 +12,21 @@
             text-align: right;
         }
 
+        .header-right-2 {
+            position: absolute;
+            top: 120px;
+            left: 0;
+            right: 0;
+            margin-right: 0;
+            text-align: right;
+        }
+
+        .text_row {
+            font-size: 12px;
+            font-family: 'Calibri Light', sans-serif;
+            line-height: 0;
+        }
+
         .img-opacity {
             max-width: 250px;
             max-height: 80px;
@@ -28,6 +43,9 @@
     {% if employer_logo %}
         <img class="img-opacity" src="{{ employer_logo }}" align="right" alt="Logo"/>
     {% endif %}
+    <div class="header-right-2">
+        <p class="text_row" align="right">xx - {{ employer_consecutive_prefix }} {{ contract_consecutive }}</p>
+    </div>
 </div>
 </body>
 </html>
