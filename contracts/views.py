@@ -28,8 +28,8 @@ class PDFView(LoginRequiredMixin, TemplateView):
             pk = self.kwargs.get('pk')
             contract = Contract.objects.get(pk=pk)
             context['contract_consecutive'] = contract.consecutive.upper()
-            context['contract_date'] = contract.contract_date
-            context['contract_resignation_date'] = contract.resignation_date
+            context['contract_date'] = contract.contract_date if contract.contract_date else ''
+            context['contract_resignation_date'] = contract.resignation_date if contract.resignation_date else ''
             context['contract_type'] = contract.type.name.upper()
             context['contract_city'] = contract.contract_city.name.upper()
             context['contract_place_work'] = contract.place_work.upper()
