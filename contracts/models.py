@@ -19,12 +19,17 @@ def get_employer_upload_path(instance, filename):
     return f'employer/{instance.pk}/images/{filename}'
 
 
+def get_employee_upload_path(instance, filename):
+    return f'employee/{instance.employee.pk}/files/{filename}'
+
+
 class Employer(models.Model):
     name = models.CharField(verbose_name='Nombre del empleador', max_length=200)
     nit = models.CharField(verbose_name='NIT No.', max_length=15)
     address = models.CharField(verbose_name='Dirección del empleador', max_length=200)
     city = models.ForeignKey(City, verbose_name='Ciudad de domicilio', on_delete=models.CASCADE)
     legal_representative = models.CharField(verbose_name='Representante legal', max_length=800)
+    consecutive_prefix = models.CharField(verbose_name='Prefijo del consecutivo', max_length=10, default='-')
     logo = models.ImageField(verbose_name='Logo', upload_to=get_employer_upload_path, null=True, blank=True)
     footer = models.ImageField(verbose_name='Pie de página', upload_to=get_employer_upload_path, null=True, blank=True)
 
@@ -127,6 +132,7 @@ class Contract(models.Model):
         default_currency='COP',
         max_digits=50,
     )
+    auxiliary_salary_reason = models.CharField(verbose_name='Motivo del salario auxiliar', default='', max_length=500)
     auxiliary_salary = MoneyField(
         verbose_name='Salario auxiliar',
         decimal_places=0,
@@ -145,6 +151,12 @@ class Contract(models.Model):
     )
     special_activities = models.TextField(verbose_name='Actividades especiales del contrato', max_length=100000, default='')
     activities = models.ManyToManyField(Activity, verbose_name='Actividades especiales del contrato')
+    confidentiality_signed = models.FileField(
+        verbose_name='Modelo de confidencialidad firmado', blank=True, null=True, upload_to=get_employee_upload_path
+    )
+    contract_signed = models.FileField(
+        verbose_name='Contrato firmado', blank=True, null=True, upload_to=get_employee_upload_path
+    )
 
     class Meta:
         verbose_name = 'Contrato'

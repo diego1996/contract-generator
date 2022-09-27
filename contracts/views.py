@@ -34,6 +34,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context['contract_position'] = contract.position.name.upper()
             context['contract_position_description'] = contract.position_description.upper()
             context['contract_base_salary'] = contract.base_salary
+            context['contract_auxiliary_salary_reason'] = contract.auxiliary_salary_reason
             context['contract_auxiliary_salary'] = contract.auxiliary_salary
             context['contract_auxiliary_salary_text'] = contract.auxiliary_salary_text.upper()
             context['contract_partner'] = contract.partner

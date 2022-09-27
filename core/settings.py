@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'colorfield',
     'djmoney',
+    'import_export',
     'django_cleanup.apps.CleanupConfig',
     'contracts.apps.ContractsConfig',
 ]

@@ -1,7 +1,9 @@
 from django.contrib import admin
 from django.utils.html import format_html
+from import_export.admin import ImportExportModelAdmin
 
 from .models import City, Employer, Employee, Position, PaidPeriod, Contract, ContractType, Activity
+from .resources import ContractResource
 
 
 class ActivityInline(admin.TabularInline):
@@ -52,7 +54,7 @@ class EmployeeAdmin(admin.ModelAdmin):
 
 
 @admin.register(Contract)
-class ContractAdmin(admin.ModelAdmin):
+class ContractAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'employer', 'employee', 'type', 'position', 'view_confidentiality_agreement_pdf', 'view_contract_pdf'
     )
@@ -62,6 +64,7 @@ class ContractAdmin(admin.ModelAdmin):
     list_filter = ('employer', 'employee', 'type', 'paid_period')
     # inlines = (ActivityInline, )
     exclude = ('activities', )
+    resource_class = ContractResource
 
     @admin.display(description='Convenio')
     def view_confidentiality_agreement_pdf(self, obj):
