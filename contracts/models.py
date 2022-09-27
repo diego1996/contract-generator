@@ -113,6 +113,7 @@ class Activity(models.Model):
 
 
 class Contract(models.Model):
+    consecutive = models.CharField(verbose_name='Consecutivo del contrato', unique=True, max_length=10, default='')
     contract_date = models.DateField(verbose_name='Fecha del contrato', null=True, blank=True)
     contract_city = models.ForeignKey(
         City, verbose_name='Ciudad', related_name='contract_city', on_delete=models.CASCADE

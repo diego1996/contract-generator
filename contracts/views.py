@@ -27,6 +27,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         try:
             pk = self.kwargs.get('pk')
             contract = Contract.objects.get(pk=pk)
+            context['contract_consecutive'] = contract.employer.consecutive.upper()
             context['contract_date'] = contract.contract_date
             context['contract_type'] = contract.type.name.upper()
             context['contract_city'] = contract.contract_city.name.upper()
@@ -45,6 +46,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context['contract_activities'] = contract.activities.all()
             context['employer_logo'] = contract.employer.logo.url if contract.employer.logo else None
             context['employer_footer'] = contract.employer.footer.url if contract.employer.footer else None
+            context['employer_consecutive_prefix'] = contract.employer.consecutive_prefix.upper()
             context['employer_name'] = contract.employer.name.upper()
             context['employer_nit'] = contract.employer.nit.upper()
             context['employer_address'] = contract.employer.address.upper()
@@ -87,7 +89,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
         html = self.render_html(*args, **kwargs)
         options = self.get_pdfkit_options()
         options['footer-font-size'] = '9'
-        # options['footer-left'] = "1252-F-GDE-36-V1"
+        options['footer-left'] = "1252-F-GDE-36-V1"
         # options['footer-center'] = "Página [page] de [topage]"
         # options['footer-right'] = ""
         # options['header-font-size'] = '9'
