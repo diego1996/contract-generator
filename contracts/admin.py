@@ -63,7 +63,7 @@ class ContractAdmin(ImportExportModelAdmin):
     search_fields = (
         'employer__name', 'employee__name', 'contract_date', 'contract_city__name', 'place_work', 'position_description'
     )
-    list_filter = ('employer', 'employee', 'type', 'paid_period')
+    list_filter = ('employer', 'employee', 'type')
     # inlines = (ActivityInline, )
     exclude = ('activities', )
     resource_class = ContractResource

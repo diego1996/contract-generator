@@ -29,6 +29,7 @@ class Employer(models.Model):
     address = models.CharField(verbose_name='Dirección del empleador', max_length=200)
     city = models.ForeignKey(City, verbose_name='Ciudad de domicilio', on_delete=models.CASCADE)
     legal_representative = models.CharField(verbose_name='Representante legal', max_length=800)
+    signature = models.ImageField(verbose_name='Firma', upload_to=get_employer_upload_path, null=True, blank=True)
     logo = models.ImageField(verbose_name='Logo', upload_to=get_employer_upload_path, null=True, blank=True)
     footer = models.ImageField(verbose_name='Pie de página', upload_to=get_employer_upload_path, null=True, blank=True)
 

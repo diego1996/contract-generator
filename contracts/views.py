@@ -51,6 +51,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context['employer_address'] = contract.employer.address.upper()
             context['employer_city'] = contract.employer.city.name.upper()
             context['employer_legal_representative'] = contract.employer.legal_representative.upper()
+            context['employer_signature'] = contract.employer.signature.url if contract.employer.signature else None
             context['employee_name'] = contract.employee.name.upper()
             context['employee_identification_type'] = contract.employee.identification_type.upper()
             context['employee_identification_number'] = contract.employee.identification_number.upper()
