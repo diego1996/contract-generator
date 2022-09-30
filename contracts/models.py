@@ -29,7 +29,6 @@ class Employer(models.Model):
     address = models.CharField(verbose_name='Dirección del empleador', max_length=200)
     city = models.ForeignKey(City, verbose_name='Ciudad de domicilio', on_delete=models.CASCADE)
     legal_representative = models.CharField(verbose_name='Representante legal', max_length=800)
-    consecutive_prefix = models.CharField(verbose_name='Prefijo del consecutivo', max_length=10, default='-')
     logo = models.ImageField(verbose_name='Logo', upload_to=get_employer_upload_path, null=True, blank=True)
     footer = models.ImageField(verbose_name='Pie de página', upload_to=get_employer_upload_path, null=True, blank=True)
 
@@ -113,7 +112,6 @@ class Activity(models.Model):
 
 
 class Contract(models.Model):
-    consecutive = models.CharField(verbose_name='Consecutivo del contrato', unique=True, max_length=10, default='')
     contract_date = models.DateField(verbose_name='Fecha del contrato', null=True, blank=True)
     resignation_date = models.DateField(verbose_name='Fecha resignación del contrato', null=True, blank=True)
     contract_city = models.ForeignKey(
