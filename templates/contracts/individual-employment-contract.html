@@ -33,13 +33,13 @@
         }
 
         .text_row {
-            font-size: 13px;
+            font-size: 12px;
             font-family: 'Calibri Light', sans-serif;
             line-height: 0;
         }
 
         .text_row_right {
-            font-size: 13px;
+            font-size: 12px;
             font-family: 'Calibri Light', sans-serif;
             word-wrap: break-word;
             white-space: pre-wrap;
@@ -424,6 +424,7 @@
             <p class="text"><b>CIUDAD: </b> {{ contract_city }}</p>
             <p class="text">EL EMPLEADOR,</p>
             <br>
+            <center><img src="{{ employer_signature }}" width="100" height="100"/></center>
             <br>
             <p>___________________________________</p>
             <p class="text">
@@ -448,7 +449,6 @@
             <p class="text"><b>FECHA: </b> {{ contract_date }}</p>
             <p class="text">EL TRABAJADOR,</p>
             <br>
-            <img src="{{ employer_signature }}" align="center" width="200" height="200"/>
             <br>
             <p>___________________________________</p>
             <p class="text">
