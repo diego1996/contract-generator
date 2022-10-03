@@ -133,8 +133,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = '/admin/'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://contratos.observatoriodesaludvillavicencio.org',
-    'https://contratos.observatoriodesaludvillavicencio.org',
+    'https://contratos.ingeomaq.com',
     'https://misdocumentos.live',
     'https://www.misdocumentos.live'
 ]
