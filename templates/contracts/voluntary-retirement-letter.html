@@ -20,23 +20,23 @@
         }
 
         .title {
-            font-size: 18px;
+            font-size: 20px;
             font-family: 'Calibri Light', sans-serif;
             line-height: 1.0;
         }
 
         .text {
-            font-size: 16px;
+            font-size: 18px;
             font-family: 'Calibri', sans-serif;
-            line-height: 1.2;
+            line-height: 1.5;
             display: inline-table;
             width: 100%;
         }
 
         .text2 {
-            font-size: 14px;
+            font-size: 18px;
             font-family: 'Calibri', sans-serif;
-            line-height: 1.2;
+            line-height: 1.0;
             display: inline-table;
             width: 100%;
         }
@@ -56,8 +56,9 @@
     <br>
     <br>
     <p class="text">
-        Yo, <b>{{ employee_name }}</b> identificado(a) con {{ employee_identification_type }}
-        número. : {{ employee_identification_number }} de {{ employee_identification_expedition_place }},
+        Yo, <b>{{ employee_name }}</b> identificado(a) con cédula de
+        ciudadanía {{ employee_identification_type }} {{ employee_identification_number }}
+        de {{ employee_identification_expedition_place }},
         me permito informar formalmente sobre mi decisión de RENUNCIA VOLUNTARIA al cargo que actualmente ocupo en la
         empresa. El motivo de la renuncia es personal y aplica a partir del presente día.
     </p>
@@ -71,10 +72,11 @@
 </p>
 <br>
 <br>
+<br>
 <p class="text2">________________________________________________</p>
 <p class="text2"><b>{{ employee_name }}</b></p>
 <p class="text2">{{ employee_identification_type }}: {{ employee_identification_number }}
-        de {{ employee_identification_expedition_place }}</p>
+    de {{ employee_identification_expedition_place }}</p>
 <br>
 <br>
 </body>
