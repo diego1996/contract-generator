@@ -161,6 +161,9 @@ class Contract(models.Model):
     resignation_signed = models.FileField(
         verbose_name='Resignación firmada', blank=True, null=True, upload_to=get_employee_upload_path
     )
+    retirement_signed = models.FileField(
+        verbose_name='Retiro voluntario firmado', blank=True, null=True, upload_to=get_employee_upload_path
+    )
 
     class Meta:
         verbose_name = 'Contrato'

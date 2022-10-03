@@ -32,6 +32,11 @@ urlpatterns = [
         name="resignation_pdf"
     ),
     path(
+        'admin/contracts/contract/<int:pk>/documents/voluntary-retirement/',
+        PDFView.as_view(template_name='contracts/voluntary-retirement-letter.html'),
+        name="voluntary_retirement_pdf"
+    ),
+    path(
         'admin/contracts/contract/<int:pk>/documents/contract/',
         PDFView.as_view(template_name='contracts/individual-employment-contract.html'),
         name="contract_pdf"
