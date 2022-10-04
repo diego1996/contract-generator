@@ -123,8 +123,11 @@
         <td>
             <p class="text"><b>CIUDAD: </b> {{ contract_city }}</p>
             <p class="text">EL EMPLEADOR,</p>
-            <br>
-            <br>
+            {% if employer_signature %}
+                <img src="{{ employer_signature }}"
+                     style="width: 150px; height: 100px; margin-left: 50px; padding-top: 30px; margin-bottom: -30px"
+                />
+            {% endif %}
             <p>___________________________________</p>
             <p class="text">
                 <b>{{ employer_legal_representative }}</b>
@@ -137,7 +140,9 @@
         <td>
             <p class="text"><b>FECHA: </b> {{ contract_date }}</p>
             <p class="text">EL EMPLEADO,</p>
-            <br>
+            {% if employer_signature %}
+                <div style="width: 150px; height: 75px; margin-left: 50px; padding-top: 30px; margin-bottom: -30px"></div>
+            {% endif %}
             <br>
             <p>___________________________________</p>
             <p class="text">
