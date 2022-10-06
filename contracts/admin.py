@@ -57,9 +57,9 @@ class EmployeeAdmin(admin.ModelAdmin):
 class ContractAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'employer', 'employee', 'type', 'position',
-        'confidentiality_signed', 'contract_signed', 'resignation_signed',
+        'confidentiality_signed', 'contract_signed', 'resignation_signed', 'exit_exam_signed',
         'view_confidentiality_agreement_pdf', 'view_contract_pdf', 'view_resignation_pdf',
-        'view_voluntary_retirement_pdf'
+        'view_voluntary_retirement_pdf', 'view_exit_exam_pdf'
     )
     search_fields = (
         'employer__name', 'employee__name', 'contract_date', 'contract_city__name', 'place_work', 'position_description'
@@ -89,4 +89,10 @@ class ContractAdmin(ImportExportModelAdmin):
     def view_voluntary_retirement_pdf(self, obj):
         return format_html(
             f"<a href='{obj.id}/documents/voluntary-retirement/' target='_blank'>Retiro voluntario</a>"
+        )
+
+    @admin.display(description='Exámen de salida (en blanco)')
+    def view_exit_exam_pdf(self, obj):
+        return format_html(
+            f"<a href='{obj.id}/documents/exit-exam/' target='_blank'>Exámen de salida</a>"
         )
