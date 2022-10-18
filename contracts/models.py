@@ -142,6 +142,9 @@ class Contract(models.Model):
         max_digits=50,
     )
     auxiliary_salary_text = models.CharField(verbose_name='Salario auxiliar (en texto)', default='', max_length=900)
+    start_entities_membership_date = models.DateField(
+        verbose_name='Fecha de afiliación a entidades', null=True, blank=True
+    )
     start_work_date = models.DateField(verbose_name='Fecha de iniciación de labores', null=True, blank=True)
     place_work = models.CharField(verbose_name='Lugar de donde desempeñará labores', max_length=200)
     position_description = models.TextField(verbose_name='Trabajo o labor contratada', max_length=900)

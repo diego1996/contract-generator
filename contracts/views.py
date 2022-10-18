@@ -40,6 +40,7 @@ class PDFView(LoginRequiredMixin, TemplateView):
             context['contract_auxiliary_salary_text'] = contract.auxiliary_salary_text.upper()
             context['contract_partner'] = contract.partner
             context['contract_duration'] = contract.duration
+            context['contract_start_entities_membership_date'] = contract.start_entities_membership_date
             context['contract_start_work_date'] = contract.start_work_date
             context['contract_paid_period'] = contract.paid_period.name.upper()
             context['contract_test_period_duration'] = contract.test_period_duration
